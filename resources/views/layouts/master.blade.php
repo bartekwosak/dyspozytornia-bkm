@@ -16,7 +16,8 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
     <a class="navbar-brand text-success font-weight-bold" href="/">DYSPOZYTORNIA BKM</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -44,13 +45,16 @@
                 </li>
             </ul>
             <div class="btn-group">
-                <button type="button" class="btn btn-secondary dropdown-toggle mr-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button type="button" class="btn btn-secondary dropdown-toggle mr-5" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
                     {{Auth::user()->name}}
                 </button>
                 <div class="dropdown-menu dropdown-menu-right mt-2">
                     <button class="dropdown-item btn btn-light" type="button">Panel użytkownika</button>
-                    <button class="dropdown-item" type="button">Panel admina</button>
-                    <button class="dropdown-item text-danger font-weight-bold" type="button" onclick="window.location.href='/logout'">Wyloguj</button>
+                    <button class="dropdown-item btn btn-light" type="button">Panel admina</button>
+                    <button class="dropdown-item text-danger font-weight-bold btn btn-light" type="button"
+                            onclick="window.location.href='/logout'">Wyloguj
+                    </button>
                 </div>
             </div>
         @endif

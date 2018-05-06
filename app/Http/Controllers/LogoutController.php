@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Http\Request;
 
 class LogoutController extends Controller
 {
@@ -12,9 +13,11 @@ class LogoutController extends Controller
         $this->middleware('auth');
     }
 
-    public function doLogout()
+    public function doLogout(Request $request)
     {
         Auth::logout();
-        return Redirect::to('/logout');
+        $request->session()->flush();
+        $request->session()->regenerate();
+        return Redirect::to('/');
     }
 }
