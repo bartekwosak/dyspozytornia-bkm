@@ -90,7 +90,7 @@
     </div>
 
     <div class="row justify-content-center">
-        <ul class="pagination">
+        <ul class="pagination flex-wrap">
             <li class="page-item active">
                 <a class="page-link" href="/GrafikTygodniowy">Poniedziałek</a>
             </li>
@@ -130,7 +130,7 @@
 
     <div class="table-responsive">
         <div class="card">
-            <div class="card-header bg-light">Poniedziałek</div>
+            <div class="card-header bg-light text-success font-weight-bold">Poniedziałek</div>
             <div class="card-body">
                 <table id="myTable" class="table-xl table-bordered table-hover dataTable" style="width:100%">
                     <thead>

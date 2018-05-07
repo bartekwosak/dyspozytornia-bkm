@@ -21,10 +21,12 @@
 <script src="//code.jquery.com/jquery-1.12.4.js"></script>
 <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script src="//cdn.datatables.net/1.10.16/js/dataTables.bootstrap4.min.js"></script>
+<script src="//cdn.datatables.net/responsive/2.2.1/js/dataTables.responsive.js"></script>
 
 <script>
     $(document).ready(function () {
         $('#myTable').DataTable({
+            responsive: true,
             language: {
                 url: '//cdn.datatables.net/plug-ins/1.10.16/i18n/Polish.json'
             },

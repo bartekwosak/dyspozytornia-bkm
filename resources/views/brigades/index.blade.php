@@ -85,7 +85,7 @@
                 Wykaz brygad
             </div>
             <div class="card-body">
-                <table id="myTable" class="table table-bordered table-hover dataTable" style="width:100%">
+                <table id="myTable" class="table table-bordered table-hover dataTable">
                     <thead>
                     <tr class="text-center">
                         <th></th>
