@@ -23,10 +23,10 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
+            <li class="nav-item {{ Request::is('track')? 'active': '' }}">
                 <a class="nav-link" href={{route('track.index')}}>Grafik tygodniowy</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item {{ Request::is('brigade')? 'active': '' }}">
                 <a class="nav-link" href={{route('brigade.index')}}>Wykazy brygad</a>
             </li>
             <li class="nav-item">

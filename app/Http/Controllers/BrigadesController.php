@@ -18,7 +18,11 @@ class BrigadesController extends Controller
 
     public function index()
     {
-        $brigades = Brigade::sortable('id', 'asc')->get();
+        if (route('brigade.index','BrigadesController')) {
+            $brigades = Brigade::sortable('id', 'asc')->get();
+        } else {
+            $brigades = Brigade::sortable('id', 'desc')->get();
+        }
         $countBrigades = $brigades->count();
         return view('brigades.index')->with(compact('brigades', 'countBrigades'));
     }
