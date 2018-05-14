@@ -20,7 +20,7 @@ class TracksController extends Controller
     {
         $tracks = Track::sortable('numer_kierowcy', 'asc')->get();
         $countTracks = $tracks->count();
-        return view('tracks.index')->with(compact('tracks','countTracks'));
+        return view('tracks.index')->with(compact('tracks', 'countTracks'));
     }
 
     public function store(AddTrackRequest $addTrackRequest)
@@ -28,6 +28,34 @@ class TracksController extends Controller
         $track = new Track($addTrackRequest->all());
         Auth::user()->tracks()->save($track);
         return back();
+    }
+
+    public function show($id)
+    {
+        if ($id == 1) {
+            $dzienTygodnia = 'Poniedziałek';
+            $tracks = Track::sortable(['numer_kierowcy' => 'desc'])->get();
+        } else if ($id == 2) {
+            $dzienTygodnia = "Wtorek";
+            $tracks = Track::sortable(['numer_kierowcy' => 'asc'])->get();
+        } else if ($id == 3) {
+            $dzienTygodnia = 'Środa';
+            $tracks = Track::sortable(['numer_kierowcy' => 'asc'])->get();
+        } else if ($id == 4) {
+            $dzienTygodnia = 'Czwartek';
+            $tracks = Track::sortable(['numer_kierowcy' => 'asc'])->get();
+        } else if ($id == 5) {
+            $dzienTygodnia = 'Piątek';
+            $tracks = Track::sortable(['numer_kierowcy' => 'asc'])->get();
+        } else if ($id == 6) {
+            $dzienTygodnia = 'Sobota';
+            $tracks = Track::sortable(['numer_kierowcy' => 'asc'])->get();
+        } else {
+            $dzienTygodnia = 'Niedziela';
+            $tracks = Track::sortable(['numer_kierowcy' => 'asc'])->get();
+        }
+        $countTracks = $tracks->count();
+        return view('tracks.show')->with(compact('dzienTygodnia', 'tracks', 'countTracks'));
     }
 
     public function update(Request $request)

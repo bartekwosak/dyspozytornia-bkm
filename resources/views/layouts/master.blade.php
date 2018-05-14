@@ -28,7 +28,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item {{ Request::is(['track','track/*'])? 'active': '' }}">
-                <a class="nav-link" href={{route('track.index')}}>Grafik tygodniowy</a>
+                <a class="nav-link" href={{route('track.show',1)}}>Grafik tygodniowy</a>
             </li>
             <li class="nav-item {{ Request::is(['brigade','brigade/*'])? 'active': '' }}">
                 <a class="nav-link" href={{route('brigade.index')}}>Wykazy brygad</a>

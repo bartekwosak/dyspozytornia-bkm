@@ -120,7 +120,7 @@
                                         Modyfikuj
                                     </button>
                                     <button type="button" class="btn btn-danger"
-                                            onclick="window.location.href='/track/delete/{{$track->id}}'">
+                                            onclick="window.location.href='delete/{{$track->id}}'">
                                         Usuń
                                     </button>
                                 </td>
