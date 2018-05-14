@@ -11,7 +11,7 @@
     <p class="display-4">Witaj w systemie dyspozytorni!</p>
     <p class="lead">Obsługiwane spółki miejskie:</p>
     <div class="row">
-        <div class="col-xs-6 col-md-4 mb-4">
+        <div class="col-xs-6 col-md-4 mb-3">
             <div class="card h-100">
                 <img class="card-img-top" src="images/kzk.jpg" alt="">
                 <div class="card-body">
@@ -24,7 +24,7 @@
             </div>
         </div>
 
-        <div class="col-xs-6 col-md-4 mb-4">
+        <div class="col-xs-6 col-md-4 mb-3">
             <div class="card h-100">
                 <img class="card-img-top" src="images/kpkm.jpg" alt="">
                 <div class="card-body">
@@ -37,7 +37,7 @@
             </div>
         </div>
 
-        <div class="col-xs-6 col-md-4 mb-4">
+        <div class="col-xs-6 col-md-4 mb-3">
             <div class="card h-100">
                 <img class="card-img-top" src="images/kpk.jpg" alt="">
                 <div class="card-body">

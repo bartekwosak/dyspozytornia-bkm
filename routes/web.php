@@ -9,8 +9,6 @@ Route::group(['middleware' => 'auth'], function () {
 Auth::routes();
 Route::get('logout', array('uses' => 'LogoutController@doLogout'));
 
-Route::get('track/{id}','TracksController@index');
-
 Route::group(['middleware' => ['web']], function () {
     Route::resource('track', 'TracksController');
     Route::resource('brigade', 'BrigadesController');

@@ -16,7 +16,9 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-    <a class="navbar-brand text-success font-weight-bold" href="/">DYSPOZYTORNIA BKM</a>
+    <a class="navbar-brand" href="/"><span class="badge badge-secondary py-0 px-0 my-0 mx-0">
+            <img src="images/logo.png" alt="logo_bkm"></span>
+    </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
