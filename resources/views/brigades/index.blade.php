@@ -12,115 +12,110 @@
 
 @section('content')
 
-    @if(count($errors) > 0)
-        <div class="alert alert-danger">
-            <ul>
-                @foreach($errors->all() as $error)
-                    <li>{{$error}}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+    @include('errors.errorsform')
+    @include('brigades.modal')
 
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="myModalLabel">Dodaj brygadę</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                aria-hidden="true">&times;</span></button>
+    <div class="row mb-2">
+        <div class="col-xl-8">
+            <div class="card border border-primary mb-2">
+                <div class="card-header text-light bg-primary border border-primary">
+                    Wybór kategorii brygady
                 </div>
-                <form action="{{route('brigade.store')}}" method="post">
-                    {{csrf_field()}}
-                    <div class="modal-body">
-                        @include('brigades.form')
+                <div class="card-body text-center">
+                    <div class="btn-group btn-group-justified mx-auto my-auto">
+                        <button type="button" class="btn btn-primary">Dzień roboczy</button>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Anuluj</button>
-                        <button type="submit" class="btn btn-primary">Dodaj</button>
+                    <div class="btn-group btn-group-justified mx-auto my-auto">
+                        <button type="button" class="btn btn-primary">Sobota</button>
                     </div>
-                </form>
+                    <div class="btn-group btn-group-justified mx-auto my-auto">
+                        <button type="button" class="btn btn-primary">Niedziela i Święta</button>
+                    </div>
+                    <div class="btn-group btn-group-justified mx-auto my-auto">
+                        <button type="button" class="btn btn-primary">Inne</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4">
+            <div class="card border border-warning">
+                <div class="card-header text-light bg-warning border border-warning">
+                    Narzędzia
+                </div>
+                <div class="card-body text-center">
+                    <div class="btn-group btn-group-justified mx-auto my-auto">
+                        <button type="button" class="btn btn-primary ml-1 w-100" data-toggle="modal"
+                                data-target="#myModal">
+                            Dodaj brygadę
+                        </button>
+                    </div>
+                    <div class="btn-group btn-group-justified mx-auto my-auto">
+                        @if($countBrigades == 0)
+                            <button type="button" class="btn btn-danger disabled w-100" data-toggle="modal"
+                                    aria-disabled="true" disabled>
+                                Usuń wykaz
+                            </button>
+                        @else
+                            <button type="button" class="btn btn-danger w-100" data-toggle="modal"
+                                    data-target="#deleteAll">
+                                Usuń wykaz
+                            </button>
+                        @endif
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
-    <div id="deleteAll" class="modal fade" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Usuń wykaz</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card border border-success">
+                <div class="card border border-success">
+                    <div class="card-header bg-success border border-success text-light">
+                        Wykaz brygad
+                    </div>
                 </div>
-                <div class="modal-body">
-                    Czy na pewno chcesz usunąć cały wykaz brygad?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Anuluj</button>
-                    <button type="button" class="btn btn-danger" onclick="window.location.href='/deleteAllBrigades'">Usuń wykaz
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-        Dodaj brygadę
-    </button>
-    @if($countBrigades == 0)
-        <button type="button" class="btn btn-danger disabled" data-toggle="modal" aria-disabled="true" disabled>
-            Usuń wykaz
-        </button>
-    @else
-        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteAll">
-            Usuń wykaz
-        </button>
-    @endif
-    <br><br>
-
-    <div class="table-responsive">
-        <div class="card">
-            <div class="card-header">
-                Wykaz brygad
-            </div>
-            <div class="card-body">
-                <table id="myTable" class="table table-bordered table-hover dataTable">
-                    <thead>
-                    <tr class="text-center">
-                        <th></th>
-                        <th>Brygada</th>
-                        <th>Typ dnia</th>
-                        <th>Godziny pracy</th>
-                        <th>Miejsce zmiany</th>
-                        <th>Typ autobusu</th>
-                        <th>Spółka</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($brigades as $brigade)
-                        <tr>
-                            <td>
-                                <button type="button" class="btn btn-success"
-                                        onclick="window.location.href='{{route('brigade.show',$brigade->id)}}'">
-                                    Szczegóły
-                                </button>
-                                <button type="button" class="btn btn-danger"
-                                        onclick="window.location.href='delete/{{$brigade->id}}'">
-                                    Usuń
-                                </button>
-                            </td>
-                            <td>{{$brigade->numer_brygady}}</td>
-                            <td>{{$brigade->rodzaj_dnia}}</td>
-                            <td>{{$brigade->godziny}}</td>
-                            <td>{{$brigade->miejsce_zmiany}}</td>
-                            <td>{{$brigade->przydzial}}</td>
-                            <td>{{$brigade->spolka}}</td>
+                <div class="card-body">
+                    <table id="brigadeTable" class="table table-bordered table-hover dataTable">
+                        <thead>
+                        <tr class="text-center">
+                            <th></th>
+                            <th>Brygada</th>
+                            <th>Typ dnia</th>
+                            <th>Godziny pracy</th>
+                            <th>Miejsce zmiany</th>
+                            <th>Typ autobusu</th>
+                            <th>Spółka</th>
                         </tr>
-                    @endforeach
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                        @foreach($brigades as $brigade)
+                            <tr>
+                                <td>
+                                    <button type="button" class="btn btn-success"
+                                            onclick="window.location.href='{{route('brigade.show',$brigade->id)}}'">
+                                        Szczegóły
+                                    </button>
+                                    <button type="button" class="btn btn-danger"
+                                            onclick="window.location.href='deleteBrigade/{{$brigade->id}}'">
+                                        Usuń
+                                    </button>
+                                </td>
+                                <td>{{$brigade->numer_brygady}}</td>
+                                <td>{{$brigade->rodzaj_dnia}}</td>
+                                <td>{{$brigade->godziny}}</td>
+                                <td>{{$brigade->miejsce_zmiany}}</td>
+                                <td>{{$brigade->przydzial}}</td>
+                                <td>{{$brigade->spolka}}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
+
+    </div>
+
 @stop

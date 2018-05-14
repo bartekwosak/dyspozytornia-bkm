@@ -16,8 +16,10 @@
 <body>
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-    <a class="navbar-brand" href="/"><span class="badge badge-secondary py-0 px-0 my-0 mx-0">
-            <img src="images/logo.png" alt="logo_bkm"></span>
+    <a class="navbar-brand" href="/">
+        <span class="badge badge-secondary py-0 px-0 my-0 mx-0">
+                <img src="/images/logo.png" alt="logo_bkm">
+        </span>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,10 +27,10 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item {{ Request::is('track')? 'active': '' }}">
+            <li class="nav-item {{ Request::is(['track','track/*'])? 'active': '' }}">
                 <a class="nav-link" href={{route('track.index')}}>Grafik tygodniowy</a>
             </li>
-            <li class="nav-item {{ Request::is('brigade')? 'active': '' }}">
+            <li class="nav-item {{ Request::is(['brigade','brigade/*'])? 'active': '' }}">
                 <a class="nav-link" href={{route('brigade.index')}}>Wykazy brygad</a>
             </li>
             <li class="nav-item">

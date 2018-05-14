@@ -40,6 +40,12 @@ class BrigadesController extends Controller
         return back();
     }
 
+    public function destroy($id)
+    {
+        Brigade::where('id', '=', $id)->delete();
+        return back();
+    }
+
     public function deleteAll()
     {
         Brigade::truncate();

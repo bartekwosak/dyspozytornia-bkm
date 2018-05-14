@@ -25,10 +25,10 @@
 <div class="form-group">
     <label for="przydzial">Rodzaj pojazdu</label>
     <select class="form-control" name="przydzial">
-        <option value="SOLO 12M NISKOPODŁOGOWY">SOLO 12M NISKOPODŁOGOWY</option>
-        <option value="MEGA 18M NISKOPODŁOGOWY">MEGA 18M NISKOPODŁOGOWY</option>
-        <option value="SOLO 12M WYSOKOPODŁOGOWY">SOLO 12M</option>
-        <option value="MEGA 18M WYSOKOPODŁOGOWY">MEGA 18M</option>
+        <option value="SOLO 12M NISK.">SOLO 12M NISKOPODŁOGOWY</option>
+        <option value="MEGA 18M NISK.">MEGA 18M NISKOPODŁOGOWY</option>
+        <option value="SOLO 12M WYS.">SOLO 12M</option>
+        <option value="MEGA 18M WYS.">MEGA 18M</option>
         <option value="MIDI 8M">MIDI 8M</option>
         <option value="Inny">Inny</option>
     </select>

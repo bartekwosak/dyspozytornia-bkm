@@ -81,7 +81,7 @@
             <div class="card border border-success">
                 <div class="card-header bg-success border border-success text-light">Poniedziałek</div>
                 <div class="card-body">
-                    <table id="myTable" class="table-bordered table-hover dataTable" style="width:100%">
+                    <table id="trackTable" class="table-bordered table-hover dataTable" style="width:100%">
                         <thead>
                         <tr class="text-center">
                             <th style="width: 17%"></th>
@@ -123,6 +123,4 @@
             </div>
         </div>
     </div>
-    </div>
-
 @stop
