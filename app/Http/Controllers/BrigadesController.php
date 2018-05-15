@@ -18,7 +18,7 @@ class BrigadesController extends Controller
 
     public function index()
     {
-        if (route('brigade.index','BrigadesController')) {
+        if (route('brigade.index', 'BrigadesController')) {
             $brigades = Brigade::sortable('id', 'asc')->get();
         } else {
             $brigades = Brigade::sortable('id', 'desc')->get();
@@ -43,7 +43,7 @@ class BrigadesController extends Controller
     public function destroy($id)
     {
         Brigade::where('id', '=', $id)->delete();
-        return back();
+        return redirect('/brigade');
     }
 
     public function deleteAll()

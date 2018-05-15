@@ -70,10 +70,8 @@
     <div class="row">
         <div class="col-xl-12">
             <div class="card border border-success">
-                <div class="card border border-success">
-                    <div class="card-header bg-success border border-success text-light">
-                        Wykaz brygad
-                    </div>
+                <div class="card-header bg-success border border-success text-light">
+                    Wykaz brygad
                 </div>
                 <div class="card-body">
                     <table id="brigadeTable" class="table table-bordered table-hover dataTable">
@@ -116,6 +114,6 @@
         </div>
     </div>
 
-    </div>
+
 
 @stop
