@@ -1,4 +1,9 @@
 <div class="form-group">
+    <label for="numer_kierowcy">Dzień</label>
+    <input id="pl-hl-track-day" type="number" class="form-control" placeholder="{{$dzienTygodnia}}">
+</div>
+
+<div class="form-group">
     <label for="numer_kierowcy">Numer służbowy</label>
     <input type="number" class="form-control" name="numer_kierowcy" id="numer_kierowcy">
 </div>

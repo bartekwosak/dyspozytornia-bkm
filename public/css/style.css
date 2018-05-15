@@ -18,6 +18,16 @@ body {
     pointer-events: none;
 }
 
+#pl-hl-track-day {
+    pointer-events: none;
+    pointer: none;
+}
+
+#pl-hl-track-day::placeholder {
+    color: #28a745;
+    font-weight: bold;
+}
+
 .footer-block {
     margin: 20px 0;
 }
@@ -30,14 +40,14 @@ body {
 
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
     background: none;
-    color: black!important;
+    color: black !important;
     border-radius: 4px;
     border: 1px solid #828282;
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button:active {
     background: none;
-    color: black!important;
+    color: black !important;
 }
 
 div.dataTables_wrapper div.dataTables_filter input {
@@ -51,7 +61,6 @@ table.dataTable thead .sorting:after, table.dataTable thead .sorting_asc:after, 
 table.dataTable thead .sorting:before, table.dataTable thead .sorting_asc:before, table.dataTable thead .sorting_desc:before, table.dataTable thead .sorting_asc_disabled:before, table.dataTable thead .sorting_desc_disabled:before {
     content: none !important;
 }
-
 
 table.dataTable thead th, table.dataTable thead td {
     border-bottom: 1px solid #dee2e6 !important;

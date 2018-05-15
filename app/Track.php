@@ -11,6 +11,7 @@ class Track extends Model
 
     protected $fillable = [
         'numer_kierowcy',
+        'id_dnia',
         'sluzba',
         'godz_pracy',
         'nr_pojazdu'

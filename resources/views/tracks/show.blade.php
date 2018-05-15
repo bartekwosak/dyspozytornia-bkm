@@ -1,5 +1,4 @@
 @extends('layouts.master')
-
 @section('jumbotron')
 
     <div class="jumbotron text-center mw-25">
