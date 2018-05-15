@@ -49,6 +49,6 @@
             columnDefs: [{
                 targets: [0], searchable: false, orderable: false, visible: true
             }, {targets: [3], searchable: false, orderable: true, visible: true}],
-        });
+        })
     });
 </script>
