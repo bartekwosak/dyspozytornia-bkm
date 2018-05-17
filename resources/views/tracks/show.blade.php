@@ -13,6 +13,7 @@
 
     @include('errors.errorsform')
     @include('tracks.modal')
+    @include('tracks.alerts')
 
     <div class="row mb-2">
         <div class="col-xl-9">
@@ -111,7 +112,7 @@
                                 <td>
                                     <button type="button" class="btn btn-info text-white"
                                             data-numer_kierowcy="{{$track->numer_kierowcy}}"
-                                            data-sluzba="{{$track->sluzba}}"
+                                            data-sluzba=""
                                             data-godz_pracy="{{$track->godz_pracy}}"
                                             data-nr_pojazdu="{{$track->nr_pojazdu}}" data-track_id="{{$track->id}}"
                                             data-toggle="modal"

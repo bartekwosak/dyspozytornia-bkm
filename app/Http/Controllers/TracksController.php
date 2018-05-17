@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Brigade;
 use App\Http\Requests\AddTrackRequest;
 use App\Track;
 use Auth;
 use Datatables;
 use DB;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class TracksController extends Controller
 {
@@ -20,6 +22,7 @@ class TracksController extends Controller
     {
         $track = new Track($addTrackRequest->all());
         Auth::user()->tracks()->save($track);
+        Session::flash('track_created','Nowy kurs został dodany!');
         return back();
     }
 
@@ -27,6 +30,8 @@ class TracksController extends Controller
     {
         $brigades = DB::select('SELECT * FROM brigades WHERE NOT EXISTS(SELECT * FROM tracks 
                                 WHERE tracks.brigade_id = brigades.id AND tracks.id_dnia = :id)', ['id' => $id]);
+
+        $brigadesAll = Brigade::all();
         if ($id == 1) {
             $dzienTygodnia = 'Poniedziałek';
             $tracks = Track::sortable(['numer_kierowcy' => 'asc'])->where('id_dnia', 1)->get();
@@ -50,19 +55,21 @@ class TracksController extends Controller
             $tracks = Track::sortable(['numer_kierowcy' => 'asc'])->where('id_dnia', 7)->get();
         }
         $countTracks = $tracks->count();
-        return view('tracks.show')->with(compact('dzienTygodnia', 'tracks', 'brigades', 'countTracks', 'id'));
+        return view('tracks.show')->with(compact('dzienTygodnia', 'tracks', 'brigades', 'brigadesAll', 'countTracks', 'id'));
     }
 
     public function update(Request $request)
     {
         $track = Track::findOrFail($request->track_id);
         $track->update($request->all());
+        Session::flash('track_modify','Kurs został zmodyfikowany!');
         return back();
     }
 
     public function destroy($id)
     {
         Track::where('id', '=', $id)->delete();
+        Session::flash('track_delete','Kurs został usunięty!');
         return back();
     }
 
@@ -70,6 +77,7 @@ class TracksController extends Controller
     {
         Track::truncate();
         DB::statement('ALTER TABLE tracks AUTO_INCREMENT = 1');
+        Session::flash('track_deleteAll','Kurs został usunięty!');
         return back();
     }
 

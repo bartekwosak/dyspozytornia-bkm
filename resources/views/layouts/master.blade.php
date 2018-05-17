@@ -31,10 +31,10 @@
                 <a class="nav-link" href={{route('track.show',1)}}>Grafik tygodniowy</a>
             </li>
             <li class="nav-item {{ Request::is(['brigade','brigade/*'])? 'active': '' }}">
-                <a class="nav-link" href={{route('brigade.index')}}>Wykazy brygad</a>
+                <a class="nav-link" href={{route('brigade.index')}}>Wykaz brygad</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Wykaz kierowców</a>
+            <li class="nav-item {{ Request::is(['driver','driver/*'])? 'active': '' }}">
+                <a class="nav-link" href="{{route('driver.index')}}">Wykaz kierowców</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Wykaz autobusów</a>

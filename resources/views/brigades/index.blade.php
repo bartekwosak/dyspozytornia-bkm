@@ -77,7 +77,7 @@
                     <table id="brigadeTable" class="table table-bordered table-hover dataTable">
                         <thead>
                         <tr class="text-center">
-                            <th></th>
+                            <th style="width: 18%"></th>
                             <th>Brygada</th>
                             <th>Typ dnia</th>
                             <th>Godziny pracy</th>

@@ -11,7 +11,7 @@
                 <div class="modal-body">
                     <input type="hidden" name="track_id" id="track_id" value="">
                     <input type="hidden" name="id_dnia" id="id_dnia" value="{{$id}}">
-                    @include('tracks.form')
+                    @include('tracks.formadd')
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Anuluj</button>
@@ -35,7 +35,7 @@
                 {{csrf_field()}}
                 <div class="modal-body">
                     <input type="hidden" name="track_id" id="track_id" value="">
-                    @include('tracks.form')
+                    @include('tracks.formedit')
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Anuluj</button>
