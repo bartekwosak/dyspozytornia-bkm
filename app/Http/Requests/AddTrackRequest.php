@@ -15,8 +15,6 @@ class AddTrackRequest extends FormRequest
     {
         return [
             'numer_kierowcy' => 'required|unique:tracks,numer_kierowcy|numeric',
-            'sluzba' => 'required',
-            'godz_pracy' => 'required',
             'nr_pojazdu' => 'required|numeric'
         ];
     }

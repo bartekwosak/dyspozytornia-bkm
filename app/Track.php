@@ -12,14 +12,15 @@ class Track extends Model
     protected $fillable = [
         'numer_kierowcy',
         'id_dnia',
-        'sluzba',
+        'brigade_id',
+        'user_id',
         'godz_pracy',
         'nr_pojazdu'
     ];
 
     public $sortable = [
         'numer_kierowcy',
-        'sluzba',
+        'brigade_id',
         'godz_pracy',
         'nr_pojazdu',
     ];
@@ -27,6 +28,11 @@ class Track extends Model
     public function user()
     {
         return $this->belongsTo('App\User');
+    }
+
+    public function brigade()
+    {
+        return $this->belongsTo('App\Brigade');
     }
 
 

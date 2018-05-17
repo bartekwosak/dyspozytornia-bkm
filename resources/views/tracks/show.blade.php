@@ -124,8 +124,8 @@
                                     </button>
                                 </td>
                                 <td>{{$track->numer_kierowcy}}</td>
-                                <td>{{$track->sluzba}}</td>
-                                <td>{{$track->godz_pracy}}</td>
+                                <td>{{$track->brigade->numer_brygady}}</td>
+                                <td>{{$track->brigade->godziny}}</td>
                                 <td>{{$track->nr_pojazdu}}</td>
                                 <td>{{$track->user->name}}</td>
                             </tr>

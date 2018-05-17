@@ -31,4 +31,9 @@ class Brigade extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function tracks()
+    {
+        return $this->hasMany('App\Track');
+    }
 }

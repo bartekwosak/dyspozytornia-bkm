@@ -9,13 +9,13 @@
 </div>
 
 <div class="form-group">
-    <label for="sluzba">Służba</label>
-    <input type="text" class="form-control" name="sluzba" id="sluzba">
-</div>
-
-<div class="form-group">
-    <label for="godz_pracy">Godziny pracy</label>
-    <input type="text" class="form-control" name="godz_pracy" id="godz_pracy">
+    <label for="brigade_id">Służba</label>
+    <select class="form-control" id="brigade_id" name="brigade_id">
+        @foreach($brigades as $brigade)
+            <option name="{{$brigade->id}}"
+                    value="{{$brigade->id}}">{{$brigade->numer_brygady}}</option>
+        @endforeach
+    </select>
 </div>
 
 <div class="form-group">
