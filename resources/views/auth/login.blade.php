@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+    Logowanie
+@endsection
+
 @section('content')
     <br><br>
     <div class="row justify-content-center">

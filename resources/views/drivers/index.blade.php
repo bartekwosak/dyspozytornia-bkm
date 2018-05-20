@@ -18,6 +18,7 @@
 
     @include('errors.errorsform')
     @include('drivers.modal')
+    @include('drivers.alerts')
 
     <div class="row">
         <div class="col-xl-9 mb-2">
@@ -85,7 +86,7 @@
                                         <span class="badge badge-secondary font-weight-bold text-light">Sob</span>
                                     @endif
                                     @if(strstr($driver->dni_pracy,'7'))
-                                            <span class="badge bg-navy font-weight-bold text-light">Nd</span>
+                                        <span class="badge bg-navy font-weight-bold text-light">Nd</span>
                                     @endif
                                 </td>
                             </tr>
@@ -109,10 +110,16 @@
                         </button>
                     </div>
                     <div class="btn-group btn-group-justified mx-auto my-auto w-100">
-                        <button type="button" class="btn btn-info w-100 mb-1" data-toggle="modal"
-                                data-target="#archive">
-                            Archiwizuj wykaz
-                        </button>
+                        @if($countDrivers == 0)
+                            <button type="button" class="btn btn-info w-100 mb-1 disabled" style="pointer-events: none">
+                                Archiwizuj wykaz
+                            </button>
+                        @else
+                            <button type="button" class="btn btn-info w-100 mb-1" data-toggle="modal"
+                                    data-target="#archive">
+                                Archiwizuj wykaz
+                            </button>
+                        @endif
                     </div>
                     <div class="btn-group btn-group-justified mx-auto my-auto w-100">
                         @if($countDrivers == 0)

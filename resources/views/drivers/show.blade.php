@@ -20,7 +20,8 @@
 @section('content')
 
     @include('errors.errorsform')
-    @include('brigades.modal')
+    @include('drivers.modal')
+    @include('drivers.alerts')
 
     <div id="deleteShowItem" class="modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -181,7 +182,12 @@
                 <div class="card-body text-center flex-column">
                     <button type="button" class="btn btn-primary w-50 mb-2"
                             data-toggle="modal"
-                            data-target="#editBrigade">
+                            data-target="#editDriver"
+                            data-numer_sluzbowy="{{$driver->numer_sluzbowy}}"
+                            data-imie_kierowcy="{{$driver->imie_kierowcy}}"
+                            data-nazwisko_kierowcy="{{$driver->nazwisko_kierowcy}}"
+                            data-stalka = "{{$driver->stalka}}"
+                            data-driver_id="{{$driver->id}}">
                         Modyfikuj
                     </button>
                     <br>

@@ -42,6 +42,9 @@ class TracksController extends Controller
                                 WHERE tracks.driver_id = drivers.id AND tracks.id_dnia = :id)
                                 AND drivers.dni_pracy LIKE CONCAT('%',:id_pracy,'%')", ['id' => $id, 'id_pracy' => $id]);
 
+        DB::statement("DELETE FROM tracks WHERE tracks.driver_id NOT IN (SELECT drivers.id FROM drivers 
+            WHERE drivers.dni_pracy LIKE CONCAT('%',:id,'%'))",['id' => $id]);
+
         $tracks = Track::where('id_dnia', $id)->get();
         $brigadesAll = Brigade::all();
         $weekDays = array('Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek', 'Sobota', 'Niedziela');

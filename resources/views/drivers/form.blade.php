@@ -40,6 +40,6 @@
 </div>
 
 <div class="form-group">
-    <label for="stalka">Stałka</label>
+    <label for="stalka">Pojazd stały</label>
     <input type="text" class="form-control" name="stalka" id="stalka">
 </div>

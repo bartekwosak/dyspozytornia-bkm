@@ -26,6 +26,7 @@ class ArchiveTablesController extends Controller
         DB::statement("DROP TABLE IF EXISTS archive_brigades CASCADE ");
         DB::statement("CREATE TABLE archive_brigades LIKE brigades");
         DB::statement("INSERT INTO archive_brigades (SELECT * FROM brigades)");
+        Session::flash('archive_brigades', 'Zarchiwizowano wykaz brygad do bazy danych!');
         return back();
     }
 
@@ -34,6 +35,7 @@ class ArchiveTablesController extends Controller
         DB::statement("DROP TABLE IF EXISTS archive_drivers CASCADE ");
         DB::statement("CREATE TABLE archive_drivers LIKE drivers");
         DB::statement("INSERT INTO archive_drivers (SELECT * FROM drivers)");
+        Session::flash('archive_drivers', 'Zarchiwizowano wykaz kierowców do bazy danych!');
         return back();
     }
 

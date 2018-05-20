@@ -34,6 +34,22 @@
         modal.find('.modal-body #spolka').val(spolka);
         modal.find('.modal-body #brigade_id').val(brigade_id);
     })
+
+    $('#editDriver').on('show.bs.modal', function (event) {
+
+        var button = $(event.relatedTarget)
+        var numer_sluzbowy = button.data('numer_sluzbowy');
+        var imie_kierowcy = button.data('imie_kierowcy');
+        var nazwisko_kierowcy = button.data('nazwisko_kierowcy');
+        var stalka = button.data('stalka');
+        var driver_id = button.data('driver_id');
+        var modal = $(this);
+        modal.find('.modal-body #numer_sluzbowy').val(numer_sluzbowy);
+        modal.find('.modal-body #imie_kierowcy').val(imie_kierowcy);
+        modal.find('.modal-body #nazwisko_kierowcy').val(nazwisko_kierowcy);
+        modal.find('.modal-body #stalka').val(stalka);
+        modal.find('.modal-body #driver_id').val(driver_id);imie_kierowcy
+    })
 </script>
 
 <script src="//code.jquery.com/jquery-1.12.4.js"></script>

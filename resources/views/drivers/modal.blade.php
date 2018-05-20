@@ -21,6 +21,30 @@
     </div>
 </div>
 
+<div class="modal fade" id="editDriver" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Edytuj</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+            </div>
+            <form action="{{route('driver.update','driver_id')}}" method="post">
+                {{method_field('patch')}}
+                {{csrf_field()}}
+                <div class="modal-body">
+                    <input type="hidden" name="driver_id" id="driver_id" value="">
+                    @include('drivers.form')
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Anuluj</button>
+                    <button type="submit" class="btn btn-primary">Zapisz zmiany</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 <div id="deleteAll" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
