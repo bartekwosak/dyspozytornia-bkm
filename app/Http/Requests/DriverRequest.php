@@ -14,7 +14,7 @@ class DriverRequest extends FormRequest
     public function rules()
     {
         return [
-            'numer_sluzbowy' => 'required|numeric|unique:drivers,numer_sluzbowy',
+            'numer_sluzbowy' => 'required|numeric',
             'imie_kierowcy' => 'required',
             'nazwisko_kierowcy' => 'required',
             'grupa_stanowisko' => 'required',

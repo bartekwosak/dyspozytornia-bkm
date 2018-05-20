@@ -175,7 +175,7 @@
                 <div class="card-body text-center">
                     @foreach($tracks as $track)
                         <button class="btn btn-danger btn-sm text-light font-weight-bold"
-                                onclick="window.location.href='{{route('track.show',$track->id)}}'">
+                                onclick="window.location.href='{{route('track.show',$track->id_dnia)}}'">
                             @if($track->id_dnia==1)
                                 Poniedziałek
                             @elseif($track->id_dnia==2)
