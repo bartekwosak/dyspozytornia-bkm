@@ -153,10 +153,20 @@
         $("#track_alert").fadeTo(500, 0).slideUp(500, function () {
             $(this).remove();
         });
-    }, 2000);
+    }, 1500);
     window.setTimeout(function () {
         $("#brigade_alert").fadeTo(500, 0).slideUp(500, function () {
             $(this).remove();
         });
-    }, 2000);
+    }, 1500);
+    window.setTimeout(function () {
+        $("#driver_alert").fadeTo(500, 0).slideUp(500, function () {
+            $(this).remove();
+        });
+    }, 1500);
+    window.setTimeout(function () {
+        $("#error").fadeTo(500, 0).slideUp(500, function () {
+            $(this).remove();
+        });
+    }, 1500);
 </script>

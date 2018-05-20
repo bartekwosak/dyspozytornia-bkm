@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Brigade;
+use App\DateGraphic;
 use App\Driver;
 use App\Http\Requests\AddTrackRequest;
+use App\Http\Requests\EditTrackRequest;
 use App\Track;
 use Auth;
 use Datatables;
 use DB;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
 class TracksController extends Controller
@@ -51,14 +52,15 @@ class TracksController extends Controller
         $countTracks = Track::get()->count();
         $countBrigades = Brigade::get()->count();
         $countDrivers = Driver::get()->count();
+        $day = DateGraphic::where('id_dnia_grafik',$id)->first();
         return view('tracks.show')->with(compact('weekDays', 'tracks', 'brigades', 'drivers', 'brigadesAll',
-            'countTracks', 'countBrigades', 'countDrivers', 'id'));
+            'countTracks', 'countBrigades', 'countDrivers', 'id', 'day'));
     }
 
-    public function update(Request $request)
+    public function update(EditTrackRequest $editTrackRequest)
     {
-        $track = Track::findOrFail($request->track_id);
-        $track->update($request->all());
+        $track = Track::findOrFail($editTrackRequest->track_id);
+        $track->update($editTrackRequest->all());
         Session::flash('track_modify', 'Kurs został zmodyfikowany!');
         return back();
     }

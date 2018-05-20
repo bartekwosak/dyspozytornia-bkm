@@ -19,6 +19,7 @@
     @include('errors.errorsform')
     @include('tracks.modal')
     @include('tracks.alerts')
+    @include('date.modal')
 
     <div class="row mb-2">
         <div class="col-xl-7">
@@ -124,8 +125,14 @@
         <div class="col-xl-12">
             <div class="card border border-success">
                 <div class="card-header bg-success border border-success text-light">
-                    <span class="badge bg-green font-weight-bold"
+                    <span class="badge bg-secondary font-weight-bold"
                           style="font-size: 15px">{{$weekDays[(Request::segment(2))-1]}}</span>
+                    <span class="badge bg-secondary font-weight-bold"
+                          style="font-size: 15px">{{\Carbon\Carbon::parse($day->data)->format('d/m/Y')}}</span>
+                    <button type="button" class="btn btn-danger btn-sm float-right font-weight-bold" data-toggle="modal"
+                            data-target="#saveDate">
+                        Określ datę
+                    </button>
                 </div>
                 <div class="card-body">
                     <table id="trackTable" class="table-bordered table-hover dataTable" style="width:100%">

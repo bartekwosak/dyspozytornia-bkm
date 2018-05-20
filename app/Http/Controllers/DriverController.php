@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Driver;
+use App\Http\Requests\DriverRequest;
 use App\Track;
 use Auth;
 use Datatables;
 use DB;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
 class DriverController extends Controller
@@ -31,29 +31,29 @@ class DriverController extends Controller
         return view('drivers.show')->with(compact('driver','tracks'));
     }
 
-    public function store(Request $request)
+    public function store(DriverRequest $driverRequest)
     {
         $driver = new Driver();
-        $driver->numer_sluzbowy = $request->input('numer_sluzbowy');
-        $driver->imie_kierowcy = $request->input('imie_kierowcy');
-        $driver->nazwisko_kierowcy = $request->input('nazwisko_kierowcy');
-        $driver->dni_pracy = implode($request->dni_pracy);
-        $driver->stalka = $request->input("stalka");
-        $driver->grupa_stanowisko = $request->input("grupa_stanowisko");
+        $driver->numer_sluzbowy = $driverRequest->input('numer_sluzbowy');
+        $driver->imie_kierowcy = $driverRequest->input('imie_kierowcy');
+        $driver->nazwisko_kierowcy = $driverRequest->input('nazwisko_kierowcy');
+        $driver->dni_pracy = implode($driverRequest->dni_pracy);
+        $driver->stalka = $driverRequest->input("stalka");
+        $driver->grupa_stanowisko = $driverRequest->input("grupa_stanowisko");
         Auth::user()->drivers()->save($driver);
         Session::flash('driver_created', 'Nowa kierowca został dodany!');
         return back();
     }
 
-    public function update(Request $request)
+    public function update(DriverRequest $driverRequest)
     {
-        $driver = Driver::findOrFail($request->driver_id);
-        $driver->numer_sluzbowy = $request->input('numer_sluzbowy');
-        $driver->imie_kierowcy = $request->input('imie_kierowcy');
-        $driver->nazwisko_kierowcy = $request->input('nazwisko_kierowcy');
-        $driver->dni_pracy = implode($request->dni_pracy);
-        $driver->stalka = $request->input("stalka");
-        $driver->grupa_stanowisko = $request->input("grupa_stanowisko");
+        $driver = Driver::findOrFail($driverRequest->driver_id);
+        $driver->numer_sluzbowy = $driverRequest->input('numer_sluzbowy');
+        $driver->imie_kierowcy = $driverRequest->input('imie_kierowcy');
+        $driver->nazwisko_kierowcy = $driverRequest->input('nazwisko_kierowcy');
+        $driver->dni_pracy = implode($driverRequest->dni_pracy);
+        $driver->stalka = $driverRequest->input("stalka");
+        $driver->grupa_stanowisko = $driverRequest->input("grupa_stanowisko");
         Auth::user()->drivers()->save($driver);
         Session::flash('driver_modify', 'Dane kierowcy zostały zaktualizowane!');
         return back();

@@ -14,6 +14,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::resource('track', 'TracksController');
     Route::resource('brigade', 'BrigadesController');
     Route::resource('driver', 'DriverController');
+    Route::resource('dategraphic', 'DateGraphicController');
 
     Route::get('track/delete/{id}', 'TracksController@destroy');
     Route::get('deleteBrigade/{id}', 'BrigadesController@destroy');

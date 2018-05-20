@@ -4,8 +4,9 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AddTrackRequest extends FormRequest
+class EditTrackRequest extends FormRequest
 {
+
     public function authorize()
     {
         return true;

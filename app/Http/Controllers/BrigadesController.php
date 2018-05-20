@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Brigade;
+use App\Http\Requests\BrigadeRequest;
 use App\Track;
 use Auth;
 use Datatables;
@@ -32,18 +33,18 @@ class BrigadesController extends Controller
         return view('brigades.show')->with(compact('brigade','tracks'));
     }
 
-    public function store(Request $request)
+    public function store(BrigadeRequest $brigadeRequest)
     {
-        $brigade = new Brigade($request->all());
+        $brigade = new Brigade($brigadeRequest->all());
         Auth::user()->brigades()->save($brigade);
         Session::flash('brigade_created', 'Nowa brygada została dodana!');
         return back();
     }
 
-    public function update(Request $request)
+    public function update(BrigadeRequest $brigadeRequest)
     {
-        $brigade = Brigade::findOrFail($request->brigade_id);
-        $brigade->update($request->all());
+        $brigade = Brigade::findOrFail($brigadeRequest->brigade_id);
+        $brigade->update($brigadeRequest->all());
         Session::flash('brigade_modify', 'Brygada został zmodyfikowana!');
         return back();
     }

@@ -1,5 +1,5 @@
 <div class="form-group">
-    <label for="numer_kierowcy">Nazwa brygady</label>
+    <label for="numer_brygady">Nazwa brygady</label>
     <input type="text" class="form-control" name="numer_brygady" id="numer_brygady">
 </div>
 

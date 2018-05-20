@@ -27,7 +27,7 @@
 @endif
 
 @if(Session::has('archive_brigades'))
-    <div id="track_alert" class="alert alert-success alert-dismissible fade show">
+    <div id="brigade_alert" class="alert alert-success alert-dismissible fade show">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         {{Session::get('archive_brigades')}}
     </div>

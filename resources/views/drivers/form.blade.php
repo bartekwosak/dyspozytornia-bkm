@@ -1,6 +1,6 @@
 <div class="form-group">
     <label for="numer_sluzbowy">Numer służbowy</label>
-    <input type="text" class="form-control" name="numer_sluzbowy" id="numer_sluzbowy">
+    <input type="number" class="form-control" name="numer_sluzbowy" id="numer_sluzbowy">
 </div>
 
 <div class="form-group">
@@ -41,5 +41,5 @@
 
 <div class="form-group">
     <label for="stalka">Pojazd stały</label>
-    <input type="text" class="form-control" name="stalka" id="stalka">
+    <input type="number" class="form-control" name="stalka" id="stalka">
 </div>
