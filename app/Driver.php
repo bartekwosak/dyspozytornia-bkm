@@ -13,17 +13,26 @@ class Driver extends Model
         'numer_sluzbowy',
         'imie_kierowcy',
         'nazwisko_kierowcy',
-        'etat',
         'dni_pracy',
-        'stalka'
+        'stalka',
+        'grupa_stanowisko'
     ];
 
     public $sortable = [
         'numer_sluzbowy',
         'imie_kierowcy',
         'nazwisko_kierowcy',
-        'etat',
         'dni_pracy',
         'stalka'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+
+    public function tracks()
+    {
+        return $this->hasMany('App\Track');
+    }
 }

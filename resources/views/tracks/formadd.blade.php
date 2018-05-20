@@ -1,11 +1,16 @@
 <div class="form-group">
     <label for="numer_kierowcy">Dzień</label>
-    <input id="pl-hl-track-day" type="number" class="form-control" placeholder="{{$dzienTygodnia}}">
+    <input id="pl-hl-track-day" type="number" class="form-control" placeholder="{{$weekDays[(Request::segment(2))-1]}}">
 </div>
 
 <div class="form-group">
-    <label for="numer_kierowcy">Numer służbowy</label>
-    <input type="number" class="form-control" name="numer_kierowcy" id="numer_kierowcy">
+    <label for="driver_id">Numer kierowcy</label>
+    <select class="form-control" id="driver_id" name="driver_id">
+        @foreach($drivers as $driver)
+            <option name="{{$driver->id}}"
+                    value="{{$driver->id}}">{{$driver->numer_sluzbowy}}</option>
+        @endforeach
+    </select>
 </div>
 
 <div class="form-group">

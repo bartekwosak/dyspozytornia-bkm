@@ -1,4 +1,9 @@
 @extends('layouts.master')
+
+@section('title')
+    Grafik: {{$weekDays[(Request::segment(2))-1]}}
+@endsection
+
 @section('jumbotron')
 
     <div class="jumbotron text-center mw-25">
@@ -16,7 +21,7 @@
     @include('tracks.alerts')
 
     <div class="row mb-2">
-        <div class="col-xl-9">
+        <div class="col-xl-7">
             <div class="card border border-primary mb-2">
                 <div class="card-header text-light bg-primary border border-primary">
                     Wybór dnia
@@ -60,21 +65,46 @@
                 </div>
             </div>
         </div>
-        <div class="col-xl-3">
+        <div class="col-xl-5">
             <div class="card border border-warning">
                 <div class="card-header text-light bg-warning border border-warning">
                     Narzędzia
                 </div>
-                <div class="card-body">
+                <div class="card-body text-center">
+                    @if($countBrigades == 0 && $countDrivers == 0 || ($countDrivers == 0 ) || ($countBrigades == 0))
+                        <div class="btn-group btn-group-justified disabled mx-auto my-auto">
+                            <button type="button" class="btn btn-primary ml-1 w-100 disabled"
+                                    style="pointer-events: none"
+                                    data-toggle="modal" disabled>
+                                Dodaj kurs
+                            </button>
+                        </div>
+                    @else
+                        <div class="btn-group btn-group-justified mx-auto my-auto">
+                            <button type="button" class="btn btn-primary ml-1 w-100" data-toggle="modal"
+                                    data-target="#myModal">
+                                Dodaj kurs
+                            </button>
+                        </div>
+                    @endif
                     <div class="btn-group btn-group-justified mx-auto my-auto">
-                        <button type="button" class="btn btn-primary ml-1 w-100" data-toggle="modal"
-                                data-target="#myModal">
-                            Dodaj kurs
-                        </button>
+                        @if($countTracks == 0)
+                            <button type="button" class="btn btn-info disabled w-100" style="pointer-events: none"
+                                    data-toggle="modal"
+                                    aria-disabled="true" disabled>
+                                Archiwizuj grafik
+                            </button>
+                        @else
+                            <button type="button" class="btn btn-info w-100" data-toggle="modal"
+                                    data-target="#archive">
+                                Archiwizuj grafik
+                            </button>
+                        @endif
                     </div>
                     <div class="btn-group btn-group-justified mx-auto my-auto">
                         @if($countTracks == 0)
-                            <button type="button" class="btn btn-danger disabled w-100" data-toggle="modal"
+                            <button type="button" class="btn btn-danger disabled w-100" style="pointer-events: none"
+                                    data-toggle="modal"
                                     aria-disabled="true" disabled>
                                 Usuń grafik
                             </button>
@@ -93,12 +123,15 @@
     <div class="row">
         <div class="col-xl-12">
             <div class="card border border-success">
-                <div class="card-header bg-success border border-success text-light">{{$dzienTygodnia}}</div>
+                <div class="card-header bg-success border border-success text-light">
+                    <span class="badge bg-green font-weight-bold"
+                          style="font-size: 15px">{{$weekDays[(Request::segment(2))-1]}}</span>
+                </div>
                 <div class="card-body">
                     <table id="trackTable" class="table-bordered table-hover dataTable" style="width:100%">
                         <thead>
                         <tr class="text-center">
-                            <th style="width: 17%"></th>
+                            <th style="width: 20%"></th>
                             <th style="width: 17%">Nr. służbowy</th>
                             <th>Służba</th>
                             <th>Godziny pracy</th>
@@ -109,12 +142,12 @@
                         <tbody>
                         @foreach($tracks as $track)
                             <tr>
-                                <td>
+                                <td class="text-center">
                                     <button type="button" class="btn btn-info text-white"
-                                            data-numer_kierowcy="{{$track->numer_kierowcy}}"
-                                            data-sluzba=""
-                                            data-godz_pracy="{{$track->godz_pracy}}"
-                                            data-nr_pojazdu="{{$track->nr_pojazdu}}" data-track_id="{{$track->id}}"
+                                            data-numer_kierowcy="{{$track->driver->numer_sluzbowy}}"
+                                            data-sluzba="{{$track->brigade->numer_brygady}}"
+                                            data-nr_pojazdu="{{$track->nr_pojazdu}}"
+                                            data-track_id="{{$track->id}}"
                                             data-toggle="modal"
                                             data-target="#edit">
                                         Modyfikuj
@@ -124,7 +157,7 @@
                                         Usuń
                                     </button>
                                 </td>
-                                <td>{{$track->numer_kierowcy}}</td>
+                                <td>{{$track->driver->numer_sluzbowy}}</td>
                                 <td>{{$track->brigade->numer_brygady}}</td>
                                 <td>{{$track->brigade->godziny}}</td>
                                 <td>{{$track->nr_pojazdu}}</td>

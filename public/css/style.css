@@ -4,7 +4,7 @@ html {
 }
 
 body {
-    margin-bottom: 100px;
+    margin-bottom: 71px;
 }
 
 #footer {
@@ -22,13 +22,12 @@ body {
     pointer: none;
 }
 
-#pl-hl-track-day::placeholder {
-    color: #28a745;
-    font-weight: bold;
-}
-
 .footer-block {
     margin: 20px 0;
+}
+
+.bg-silver {
+    background-color: whitesmoke;
 }
 
 .dataTables_wrapper .dataTables_paginate .paginate_button {
@@ -50,7 +49,7 @@ body {
 }
 
 /*div.dataTables_wrapper div.dataTables_filter input {*/
-    /*width: 300px;*/
+/*width: 300px;*/
 /*}*/
 
 table.dataTable thead .sorting:after, table.dataTable thead .sorting_asc:after, table.dataTable thead .sorting_desc:after, table.dataTable thead .sorting_asc_disabled:after, table.dataTable thead .sorting_desc_disabled:after {
@@ -67,4 +66,8 @@ table.dataTable thead th, table.dataTable thead td {
 
 table.dataTable.no-footer {
     border-bottom: 2px solid #dee2e6 !important;
+}
+
+div.dt-buttons.btn-group {
+    margin-bottom: 1em;
 }

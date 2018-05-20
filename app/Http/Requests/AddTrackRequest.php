@@ -14,7 +14,6 @@ class AddTrackRequest extends FormRequest
     public function rules()
     {
         return [
-            'numer_kierowcy' => 'required|unique:tracks,numer_kierowcy|numeric',
             'nr_pojazdu' => 'required|numeric'
         ];
     }

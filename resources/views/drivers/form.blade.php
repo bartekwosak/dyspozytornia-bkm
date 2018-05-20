@@ -1,44 +1,45 @@
 <div class="form-group">
-    <label for="numer_kierowcy">Nazwa brygady</label>
-    <input type="text" class="form-control" name="numer_brygady" id="numer_brygady">
+    <label for="numer_sluzbowy">Numer służbowy</label>
+    <input type="text" class="form-control" name="numer_sluzbowy" id="numer_sluzbowy">
 </div>
 
 <div class="form-group">
-    <label for="rodzaj_dnia">Rodzaj dnia</label>
-    <select class="form-control" id="rodzaj_dnia" name="rodzaj_dnia">
-        <option name="Dzień roboczy" value="Dzień roboczy">Dzień roboczy</option>
-        <option name="Sobota" value="Sobota">Sobota</option>
-        <option name="Niedziela i święta" value="Niedziela i święta">Niedziela i Święta</option>
+    <label for="imie_kierowcy">Imię pracownika</label>
+    <input type="text" class="form-control" name="imie_kierowcy" id="imie_kierowcy">
+</div>
+
+<div class="form-group">
+    <label for="nazwisko_kierowcy">Nazwisko pracownika</label>
+    <input type="text" class="form-control" name="nazwisko_kierowcy" id="nazwisko_kierowcy">
+</div>
+
+<div class="form-group">
+    <label for="grupa_stanowisko">Stanowisko</label>
+    <select class="form-control" id="grupa_stanowisko" name="grupa_stanowisko">
+        <option name="Prezes główny" value="Prezes główny">Prezes główny</option>
+        <option name="Prezes spółki" value="Prezes spółki">Prezes spółki</option>
+        <option name="Dyspozytor" value="Dyspozytor">Dyspozytor</option>
+        <option name="Kadrowy" value="Kadrowy">Kadrowy</option>
+        <option name="Nadzorca ruchu" value="Nadzorca ruchu">Nadzorca ruchu</option>
+        <option name="Kierowca" value="Kierowca" selected>Kierowca</option>
+        <option name="Mechanik" value="Mechanik">Mechanik</option>
     </select>
 </div>
 
 <div class="form-group">
-    <label for="godziny">Godziny pracy</label>
-    <input type="text" class="form-control" name="godziny" id="godziny">
-</div>
-
-<div class="form-group">
-    <label for="miejsce_zmiany">Miejsce zmiany/zakończenia</label>
-    <input type="text" class="form-control" name="miejsce_zmiany" id="miejsce_zmiany">
-</div>
-
-<div class="form-group">
-    <label for="przydzial">Rodzaj pojazdu</label>
-    <select class="form-control" name="przydzial">
-        <option value="SOLO 12M NISK.">SOLO 12M NISKOPODŁOGOWY</option>
-        <option value="MEGA 18M NISK.">MEGA 18M NISKOPODŁOGOWY</option>
-        <option value="SOLO 12M WYS.">SOLO 12M</option>
-        <option value="MEGA 18M WYS.">MEGA 18M</option>
-        <option value="MIDI 8M">MIDI 8M</option>
-        <option value="Inny">Inny</option>
+    <label for="dni_pracy">Dni pracy</label>
+    <select class="form-control" id="dni_pracy" name="dni_pracy[]" multiple>
+        <option name="1" value="1" selected>Poniedziałek</option>
+        <option name="2" value="2">Wtorek</option>
+        <option name="3" value="3">Środa</option>
+        <option name="4" value="4">Czwartek</option>
+        <option name="5" value="5">Piątek</option>
+        <option name="6" value="6">Sobota</option>
+        <option name="7" value="7">Niedziela</option>
     </select>
 </div>
 
 <div class="form-group">
-    <label for="spolka">Operator przewozu</label>
-    <select class="form-control" name="spolka">
-        <option value="KZK">KZK</option>
-        <option value="KPKM">KPKM</option>
-        <option value="KPK">KPK</option>
-    </select>
+    <label for="stalka">Stałka</label>
+    <input type="text" class="form-control" name="stalka" id="stalka">
 </div>

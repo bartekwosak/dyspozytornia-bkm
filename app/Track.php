@@ -14,6 +14,7 @@ class Track extends Model
         'id_dnia',
         'brigade_id',
         'user_id',
+        'driver_id',
         'godz_pracy',
         'nr_pojazdu'
     ];
@@ -33,6 +34,11 @@ class Track extends Model
     public function brigade()
     {
         return $this->belongsTo('App\Brigade');
+    }
+
+    public function driver()
+    {
+        return $this->belongsTo('App\Driver');
     }
 
 

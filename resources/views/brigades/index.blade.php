@@ -1,5 +1,9 @@
 @extends('layouts.master')
 
+@section('title')
+    Wykaz brygad
+@endsection
+
 @section('jumbotron')
 
     <div class="jumbotron text-center mw-25">
@@ -14,49 +18,41 @@
 
     @include('errors.errorsform')
     @include('brigades.modal')
+    @include('brigades.alerts')
 
-    <div class="row mb-2">
-        <div class="col-xl-8">
-            <div class="card border border-primary mb-2">
-                <div class="card-header text-light bg-primary border border-primary">
-                    Wybór kategorii brygady
-                </div>
-                <div class="card-body text-center">
-                    <div class="btn-group btn-group-justified mx-auto my-auto">
-                        <button type="button" class="btn btn-primary">Dzień roboczy</button>
-                    </div>
-                    <div class="btn-group btn-group-justified mx-auto my-auto">
-                        <button type="button" class="btn btn-primary">Sobota</button>
-                    </div>
-                    <div class="btn-group btn-group-justified mx-auto my-auto">
-                        <button type="button" class="btn btn-primary">Niedziela i Święta</button>
-                    </div>
-                    <div class="btn-group btn-group-justified mx-auto my-auto">
-                        <button type="button" class="btn btn-primary">Inne</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-4">
+    <div class="row mb-3">
+        <div class="col-xl-12">
             <div class="card border border-warning">
                 <div class="card-header text-light bg-warning border border-warning">
                     Narzędzia
                 </div>
                 <div class="card-body text-center">
                     <div class="btn-group btn-group-justified mx-auto my-auto">
-                        <button type="button" class="btn btn-primary ml-1 w-100" data-toggle="modal"
-                                data-target="#myModal">
-                            Dodaj brygadę
+                        <button type="button" class="btn btn-primary w-100 mb-1" data-toggle="modal"
+                                data-target="#myModal">Dodaj brygadę
                         </button>
                     </div>
                     <div class="btn-group btn-group-justified mx-auto my-auto">
                         @if($countBrigades == 0)
-                            <button type="button" class="btn btn-danger disabled w-100" data-toggle="modal"
+                            <button type="button" class="btn btn-info w-100 mb-1" style="pointer-events: none"
+                                    data-toggle="modal"
+                                    aria-disabled="true" disabled>Archiwizuj wykaz
+                            </button>
+                        @else
+                            <button type="button" class="btn btn-info w-100 mb-1" data-toggle="modal"
+                                    data-target="#archive">Archiwizuj wykaz
+                            </button>
+                        @endif
+                    </div>
+                    <div class="btn-group btn-group-justified mx-auto my-auto">
+                        @if($countBrigades == 0)
+                            <button type="button" class="btn btn-danger disabled w-100 mb-1"
+                                    style="pointer-events: none" data-toggle="modal"
                                     aria-disabled="true" disabled>
                                 Usuń wykaz
                             </button>
                         @else
-                            <button type="button" class="btn btn-danger w-100" data-toggle="modal"
+                            <button type="button" class="btn btn-danger w-100 mb-1" data-toggle="modal"
                                     data-target="#deleteAll">
                                 Usuń wykaz
                             </button>
@@ -68,7 +64,7 @@
     </div>
 
     <div class="row">
-        <div class="col-xl-12">
+        <div class="col-xl-12 mb-3">
             <div class="card border border-success">
                 <div class="card-header bg-success border border-success text-light">
                     Wykaz brygad
@@ -80,8 +76,8 @@
                             <th style="width: 18%"></th>
                             <th>Brygada</th>
                             <th>Typ dnia</th>
-                            <th>Godziny pracy</th>
-                            <th>Miejsce zmiany</th>
+                            <th>Godziny</th>
+                            <th>Przystanek</th>
                             <th>Typ autobusu</th>
                             <th>Spółka</th>
                         </tr>
