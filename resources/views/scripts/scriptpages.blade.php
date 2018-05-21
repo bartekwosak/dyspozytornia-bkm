@@ -124,6 +124,9 @@
         $('#driversTable').DataTable({
             dom: 'Bfrtip',
             responsive: true,
+            lengthChange: false,
+            info: false,
+            processing: true,
             language: {
                 url: '//cdn.datatables.net/plug-ins/1.10.16/i18n/Polish.json'
             },
