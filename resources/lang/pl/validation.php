@@ -85,7 +85,7 @@ return [
     ],
     'string'               => 'The :attribute must be a string.',
     'timezone'             => 'The :attribute must be a valid zone.',
-    'unique'               => 'Numer kierowcy :attribute jest już w użyciu.',
+    'unique'               => ':attribute jest już w użyciu.',
     'uploaded'             => 'The :attribute failed to upload.',
     'url'                  => 'The :attribute format is invalid.',
 

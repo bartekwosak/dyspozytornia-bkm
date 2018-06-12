@@ -7,7 +7,7 @@
 @section('jumbotron')
     <div class="jumbotron text-center">
         <header class="h2 font-weight-bold">
-            Kierowca:
+            {{$driver->grupa_stanowisko}}:
             <div class="card bg-light text-success w-25 mx-auto mt-2">
                 {{$driver->numer_sluzbowy}}<br>
             </div>
